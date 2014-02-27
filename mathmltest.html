@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CanvasMath MathML test page</title>
+  <script src="lib.js"></script>
+  <script src="box.js"></script>
+  <script src="layout.js"></script>
+  <script src="operators.js"></script>
+  <script src="expr.js"></script>
+  <script src="parse.js"></script>
+  <script src="mathml.js"></script>
+</head>
+<body>
+<h1>CanvasMath MathML test</h1>
+<p><em>All math below is included in the page as MathML.  It is rendered in canvas objects. See the page source</em></p>
+<p> sin(x) + 9:
+<math>
+  <apply><plus/>
+    <apply><sin/><ci>x</ci></apply>
+    <cn>9</cn>
+  </apply>
+</math>
+</p>
+
+<p>(a+b)^2:
+<math>
+  <apply>
+    <power/>
+    <apply>
+      <plus/>
+      <ci>a</ci>
+      <ci>b</ci>
+    </apply>
+    <cn>2</cn>
+  </apply>
+</math>
+</p>
+
+<p>ax^2 + bx + c:
+<math>
+    <apply>
+        <plus/>
+        <apply>
+            <times/>
+            <ci>a</ci>
+            <apply>
+                <power/>
+                <ci>x</ci>
+                <cn>2</cn>
+            </apply>
+        </apply>
+        <apply>
+            <times/>
+            <ci>b</ci>
+            <ci>x</ci>
+        </apply>
+        <ci>c</ci>
+    </apply>
+</math>
+</p>
+
+<p>2*x*y+(1+x)/(1+x^2):
+<math>
+<apply>
+  <plus/>
+  <apply>
+    <times/>
+    <cn>2</cn>
+    <ci>x</ci>
+    <ci>y</ci>
+  </apply>
+  <apply>
+    <divide/>
+    <apply>
+      <plus/>
+      <cn>1</cn>
+      <ci>x</ci>
+    </apply>
+    <apply>
+      <plus/>
+      <cn>1</cn>
+      <apply>
+        <power/>
+        <ci>x</ci>
+        <cn>2</cn>
+      </apply>
+    </apply>
+  </apply>
+</apply>
+</math>
+</p>
+</body>
+</html>

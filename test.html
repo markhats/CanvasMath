@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--[if lt IE 9]>
+  <meta http-equiv="X-UA-Compatible" content="IE=7" />
+  <script src="excanvas.js"></script>
+  <script src="collections.js"></script>
+  <![endif]-->
+  <script src="jquery.js"></script>
+  <script src="lib.js"></script>
+  <script src="box.js"></script>
+  <script src="layout.js"></script>
+  <script src="operators.js"></script>
+  <script src="expr.js"></script>
+  <script src="parse.js"></script>
+  <script src="serialize.js"></script>
+  <script src="test.js"></script>
+<style type="text/css">
+h3, h4, h5 {
+    margin: 0px;
+}
+.editor-button {
+    border: thin solid gray;
+    height: 40px;
+}
+.show {
+    display: block;
+}
+.hide {
+    display: none;
+}
+
+</style>
+</head>
+<body>
+<h3>Javascript + Canvas Equation Editor Playground(Chrome, Firefox, Safari, IE9+?, Opera?)</h3>
+<input type="checkbox" id="priority-mode"  />Priority Mode (check this for input to follow operator priority - quicker but can be confusing for some!)<br>
+<div id="editor-buttons" class="show">
+  <img class="editor-button" id="power-button" src="img/power-button.png" title="x^"></img>
+  <img class="editor-button" id="subscript-button" src="img/subscript-button.png" title="x_"></img>
+  <img class="editor-button" id="sqrt-button" src="img/sqrt-button.png" title="sqrt x"></img>
+  <img class="editor-button" id="cbrt-button" src="img/cbrt-button.png" title="3 root x"></img>
+ <img class="editor-button" id="root-button" src="img/root-button.png" title="x root"></img>
+  <img class="editor-button" id="fraction-button" src="img/fraction-button.png" title="x /"></img>
+</div>
+<div id="hi-editor-buttons" class="hide">
+  <img class="editor-button" id="hi-power-button" src="img/hi-power-button.png" title="x^"></img>
+  <img class="editor-button" id="hi-subscript-button" src="img/hi-subscript-button.png" title="x_"></img>
+  <img class="editor-button" id="hi-sqrt-button" src="img/hi-sqrt-button.png" title="sqrt x"></img>
+  <img class="editor-button" id="hi-cbrt-button" src="img/hi-cbrt-button.png" title="3 root x"></img>
+ <img class="editor-button" id="hi-root-button" src="img/hi-root-button.png" title="x root"></img>
+  <img class="editor-button" id="hi-fraction-button" src="img/hi-fraction-button.png" title="x /"></img>
+</div>
+
+<canvas id="testcvs" width="700" height="300" style="border: 1px solid red"></canvas>
+<h5>Text area for serialization/deserialization</h5>
+<textarea id="serialization" style="width: 702px; height: 4em;"></textarea>
+<h4>Commands</h4>
+<ul>
+  <li><span id="create-shortcut"></span>: Create new expression (mouse must be in the red rectangle)</li>
+  <li><span id="copy-shortcut"></span>: Copy selection to clipboard</li>
+  <li><span id="paste-shortcut"></span>: Paste clipboard content into selection</li>
+  <li><span id="cut-shortcut"></span>: Cut selection and put it in clipboard</li>
+  <li><span id="serialize-shortcut"></span>: <input type="button" id="serialize" value="Serialize"/> selection using <select id="serializer"></select> serializer</li>
+  <li>Backspace: delete selection or last input character</li>
+  <li>Tab: cycle through possible keyword completions</li>
+  <li>Enter: validate current completion</li>
+  <li>Arrows: move selection within expression: UP to parent expression, DOWN to subexpression, LEFT to previous sibling and RIGHT to next sibling</li>
+</ul>
+<h4>Known prefix keywords</h4>
+<div id="prefixkwlist"></div>
+<h4>Known postfix keywords</h4>
+<div id="postfixkwlist"></div>
+<h4>Serializer</h4>
+
+</body>
+</html>

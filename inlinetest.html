@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Inline CanvasMath</title>
+  <script src="jquery.js"></script>
+  <script src="lib.js"></script>
+  <script src="box.js"></script>
+  <script src="layout.js"></script>
+  <script src="operators.js"></script>
+  <script src="expr.js"></script>
+  <script src="parse.js"></script>
+  <script src="select.js"></script>
+  <script src="edit.js"></script>
+  <script src="inline.js"></script>
+  <style>
+  .selectable {
+    cursor: text; 
+  }
+  .editor-button {
+    border: 1px solid gray;
+    margin: 1px;
+    background-color: white;
+  }
+  </style>
+</head>
+
+<body>
+<h1>CanvasMath Inline Substitution example</h1>
+<p><em>Resize the browser window and see what happens.  View the page source. All <code>&lt;cvm&gt;</code> nodes are replaced with a canvas containing a rendering of the math in the element.  The math is written in human readable syntax.</em></p>
+<p>The following expression is selectable: <cvm selectable=true>(1+x)/(1-x)</cvm>. You can select any part of it by dragging the mouse.</p>
+<p>The following expression is editable: <cvm editable=true>1+sintheta</cvm>. Click it then start editing!  You can select some parts of it as well by dragging the mouse.</p>
+<p>This one is neither selectable nor editable: <cvm>sqrt(x^2+y^2)</cvm>!</p>
+<p>We know well that <cvm>sin^2theta + cos^2theta = 1</cvm> and that <cvm>x=(-b+-sqrt(b^2-4ac))/(2a)</cvm>, but it is less well known that <cvm>exp^(ipi)+1=0</cvm></p>
+<p>Matrices are important two: <cvm>(cosphi, -sinphi; sinphi, cosphi)*(cosalpha; sinalpha)</cvm> may ring a bell...</p>
+</body>
+</html>

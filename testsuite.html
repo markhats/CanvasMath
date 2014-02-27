@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html> <head>
+<title>CanvasMath MathML test page</title>
+<script src="jquery.js"></script>
+<script src="lib.js"></script>
+<script src="box.js"></script>
+<script src="layout.js"></script>
+<script src="operators.js"></script>
+<script src="expr.js"></script>
+<script src="parse.js"></script>
+<script src="mathml.js"></script>
+<script src="serialize.js"></script>
+<script src="testsuite.js"></script>
+</head>
+<style>
+table {
+    border: 1px solid blue;
+    width: 100%;
+    border-collapse: collapse;
+}
+td {
+   border: 1px solid blue;
+}
+thead {
+    color: white;
+    background-color: blue;
+}
+
+</style>
+<body>
+<h1>Test suite</h1>
+
+<table>
+  <thead>
+    <tr>
+      <td>A. Text</td><td>B. (A) rendered on canvas</td><td>C. (A) parsed to MathML</td><td>D. (C) parsed and rendered on canvas</td>
+    </tr>
+  </thead>
+  <tbody id="tests">
+  </tbody>
+</table>
+
+</body> </html>
