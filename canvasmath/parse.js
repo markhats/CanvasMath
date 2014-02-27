@@ -93,6 +93,12 @@ var operations = {
 	e.parent.replaceChild(e, func);
 	return rhs;
     },
+    openCoordsList: function (e) {
+       var rhs = expr.editExpr();
+       var func =  expr.coordsList([rhs]);
+       e.parent.replaceChild(e, func);
+       return rhs;
+    },
     addprefixop: function (maker) {
 	return function (e) {
 	    var rhs = expr.editExpr();
@@ -146,6 +152,15 @@ var operations = {
 	    }
 	}
 	return e;
+    },
+    closeCoordsList: function (e) {
+   var p;
+   for (p = e.parent; !p.isRoot; p = p.parent) {
+       if (p.insertAfterInRow || p.insertRowAfter) {
+      return p.parent;
+       }
+   }
+   return e;
     },
     factorial: function (e) {
 	var p = e.parent;
@@ -278,6 +293,7 @@ var prefixUnaryOps = {
     "-+": operations.prefixop(expr.minusPlus),
     "not": operations.prefixop(expr.not),
     "(": operations.prefixop(expr.brackets),
+    "{": operations.openCoordsList,
     "d.": operations.prefixop(expr.differential),
     "from": operations.fromOp,
     "to": operations.toOp
@@ -286,6 +302,7 @@ var prefixUnaryOps = {
 var postfixUnaryOps = {
     ")": operations.closeBracket,
     "]": operations.closeArgList,
+    "}": operations.closeCoordsList,
     "!": operations.factorial,
     "'": operations.differentiate
 };

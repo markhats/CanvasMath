@@ -820,6 +820,39 @@ var ArgumentList = {
 };
 ArgumentList = VarLenOperation.specialise(ArgumentList);
 
+var CoordsList = {
+    __name__: "CoordsList",
+    isArgumentList: true,
+    oneOperandPossible: true,
+    pushOp: function (layout, train, i, forceOp) {
+   var op;
+   if (i) {
+       op = operators.infix.comma.layout(layout);
+       train.push(op);
+       op.bindExpr(this, i);
+   }
+   train.push(this.subLayout(layout, this.operands[i]));
+    },
+    layout: function (layout) {
+   var self = this;
+   var train = [];
+   var ltrain;
+   this.operands.forEach(function (op, i) {
+       self.pushOp(layout, train, i);
+   });
+   ltrain = layout.train(train);
+   var lbracket = layout.lrEnclosure(ltrain, "(", ")");
+   ltrain.bindExpr(this);
+   lbracket.bindExpr(this, "bracket");
+   return layout.raise(4, lbracket);
+    },
+    insertAfterInRow: function (arg, newArg) {
+   return this.insertAfter(arg, newArg);
+    }
+};
+CoordsList = VarLenOperation.specialise(CoordsList);
+
+
 var Conjunction = {
     __name__: "Conjunction",
     isConjunction: true,
@@ -1621,6 +1654,9 @@ var expr = cvm.expr = {
     },
     argumentList: function (args) {
 	return ArgumentList.instanciate(args);
+    },
+    coordsList: function (args) {
+   return CoordsList.instanciate(args);
     },
     applyFunction: function (f, arglist) {
 	return FunctionApplication.instanciate(f, arglist);
