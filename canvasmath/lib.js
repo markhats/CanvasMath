@@ -54,7 +54,7 @@ var Prototype = {
 	for (var prop in mixin) {
 	    if (mixin.hasOwnProperty(prop)) {
 		if (this[prop]) {
-		    throw "object has property '" + prop + "' already"; 
+		    throw "object has property '" + prop + "' already";
 		}
 		this[prop] = mixin[prop];
 	    }

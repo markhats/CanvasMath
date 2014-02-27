@@ -123,7 +123,7 @@ var Selection = Prototype.specialise({
 	    this.expr.setSelected(this);
 	    this.start = s.start;
 	    this.stop = s.stop;
-	    this.isSlice = (s.start || s.stop) && s.expr.slicedLayout;  
+	    this.isSlice = (s.start || s.stop) && s.expr.slicedLayout;
 	} else {
 	    this.expr = this.start = this.stop = null;
 	    this.isSlice = false;
@@ -244,7 +244,7 @@ cvm.select = {
 		return;
 	    }
 	    var coords = getEventCoords(e, this);
-	    var target = getFirstBoundExpr(root.box, 
+	    var target = getFirstBoundExpr(root.box,
 		coords.x, coords.y - root.box.ascent);
 	    if (!target) {
 		return;

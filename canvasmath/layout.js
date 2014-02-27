@@ -324,7 +324,7 @@ var LTable = {
 		return elem.box();
 	    });
 	});
-	var tbox = bx.Table.instanciate(brows, this.hspace, 
+	var tbox = bx.Table.instanciate(brows, this.hspace,
 	    this.vspace, this.align);
 	return tbox;
     }

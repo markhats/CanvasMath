@@ -128,7 +128,7 @@ var RPNSerializer = {
 	    var sign = null;
 	    if (i) {
 		if (op.isNegation) {
-		    
+
 		    sign = "-";
 		    op = op.value;
 		} else {
@@ -265,7 +265,7 @@ var LaTeXSerializer = {
 		join(" & ");
 	}).join("\\\\\n");
 	return "\\left(\\begin{array}{" + arrayParams + "}\n" +
-	    arrayContent + 
+	    arrayContent +
 	    "\n\\end{array}";
     }
 };
@@ -291,7 +291,7 @@ var MaximaSerializer = {
     },
     Matrix: function (e) {
 	return "matrix(" + e.rows.map(function (row) {
-	    return "[" + 
+	    return "[" +
 		row.map(function (item) { return self.serialize(item); }).
 		join(", ") + "]";
 	}) + ")";
@@ -439,7 +439,7 @@ var MathMLSerializer = {
 	} else {
 	    args.push(e.subscript);
 	}
-	return this.apply("selector", args); 
+	return this.apply("selector", args);
     },
     Negation: function (e) {
 	return this.apply("minus", [e.value]);

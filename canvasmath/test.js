@@ -131,7 +131,7 @@ var Selection = Prototype.specialise({
 	    this.expr.setSelected(this);
 	    this.start = s.start;
 	    this.stop = s.stop;
-	    this.isSlice = (s.start || s.stop) && s.expr.slicedLayout;  
+	    this.isSlice = (s.start || s.stop) && s.expr.slicedLayout;
 	} else {
 	    this.expr = this.start = this.stop = null;
 	    this.isSlice = false;
@@ -281,7 +281,7 @@ var cbrtButton = SimpleButton.specialise({
     getExpr: function (e) {
 	var n = expr.number(3);
 	e.parent.replaceChild(e, n);
-	return operations.nthRoot(n, e); 
+	return operations.nthRoot(n, e);
     }
 });
 
@@ -361,7 +361,7 @@ var testOnLoad = function () {
     cvm.box.init();
     var _canvas = $("#testcvs")[0];
     if (!_canvas.getContext) {
-	G_vmlCanvasManager.initElement(_canvas);	
+	G_vmlCanvasManager.initElement(_canvas);
     }
     var ctx = _canvas.getContext("2d");
     var drawExprs = function () {

@@ -12,7 +12,7 @@
     }
 
 /** This method returns true if each call to `fn` returns true.
-  * `fn` is called with each item and its index.  
+  * `fn` is called with each item and its index.
   */
 define(Array, 'every', function(fn, thisObject) {
     var len = this.length;
@@ -23,7 +23,7 @@ define(Array, 'every', function(fn, thisObject) {
 });
 
 /** This method returns true if some call to `fn` returns true.
-  * `fn` is called with each item and its index.  
+  * `fn` is called with each item and its index.
   */
 define(Array, 'some', function(fn, thisObject) {
     var len = this.length;
@@ -34,7 +34,7 @@ define(Array, 'some', function(fn, thisObject) {
 });
 
 /** Returns a subarray for which `fn` returns true.
-  * `fn` is called with each item and its index.  
+  * `fn` is called with each item and its index.
   */
 define(Array, 'filter', function(fn, thisObject) {
     var len = this.length,
@@ -46,7 +46,7 @@ define(Array, 'filter', function(fn, thisObject) {
 });
 
 /** Runs `fn` for each item in the array.
-  * `fn` is called with each item and its index.  
+  * `fn` is called with each item and its index.
   */
 define(Array, 'forEach', function(fn, thisObject) {
     var len = this.length;

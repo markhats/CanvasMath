@@ -51,7 +51,7 @@ window.addEventListener("load", function () {
 	var mathml = parser.parseFromString(mathmlText, "text/xml").firstChild;
 	*/
 	// So fallback onto innerHTML, which does, but has trouble parsing
-	// empty elements e.g. <plus/>, which is why empty elements are 
+	// empty elements e.g. <plus/>, which is why empty elements are
 	// serialized as e.g. <plus></plus> :(
 	if (!nonMathML) {
 	    var mathMLBits = MathMLSerializer.serializeToBits(e);

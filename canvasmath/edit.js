@@ -256,7 +256,7 @@ var cbrtButton = SimpleButton.specialise({
     getExpr: function (e) {
 	var n = expr.number(3);
 	e.parent.replaceChild(e, n);
-	return operations.nthRoot(n, e); 
+	return operations.nthRoot(n, e);
     },
     button: image("cbrt-button"),
     hiButton: image("hi-cbrt-button")
@@ -339,7 +339,7 @@ var EditMenu = Prototype.specialise({
 	    }
 	});
 	this.div.append(row);
-    }	
+    }
 });
 
 

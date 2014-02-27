@@ -18,7 +18,7 @@ var operations = {
 	    rhs = expr.editExpr();
 	}
 	if (this.priorityMode || Op.isProposition) {
-	    while (!e.parent.isRoot && !e.parent.isBracket && 
+	    while (!e.parent.isRoot && !e.parent.isBracket &&
 		e.parent.priority > Op.priority) {
 		/*if (e === e.parent.from) {
 		    break;
@@ -41,7 +41,7 @@ var operations = {
 	    e.parent.replaceChild(e.parent.arg, rhs);
 	} else // end of hack XXX
 	// Now a hack to allow sum from(i=1) to (n) (1/n)
-	if (this.priorityMode && Op === expr.Product && e.parent.isOpOf && 
+	if (this.priorityMode && Op === expr.Product && e.parent.isOpOf &&
 		(e === e.parent.to || e === e.parent.from)) {
 	    e.parent.replaceChild(e.parent.arg, rhs);
 	} else // end of hack XXX
@@ -109,7 +109,7 @@ var operations = {
     frac: function (e) {
 	var rhs = expr.editExpr();
 	if (operations.priorityMode) {
-	    while (!e.parent.isRoot && !e.parent.isBracket && 
+	    while (!e.parent.isRoot && !e.parent.isBracket &&
 		e.parent.priority > expr.Fraction.priority) {
 		e = e.parent;
 	    }
@@ -184,8 +184,8 @@ var operations = {
     addColumn: function (e, rhs) {
 	rhs = expr.editExpr();
 	if (operations.priorityMode) {
-	    while (!e.parent.isRoot && 
-		   !e.parent.insertAfterInRow && 
+	    while (!e.parent.isRoot &&
+		   !e.parent.insertAfterInRow &&
 		   !e.parent.isBracket) {
 		e = e.parent;
 	    }
@@ -371,7 +371,7 @@ var functions = {
 ].forEach(function (fdata) {
     functions[fdata.name] = fdata.expr;
 });
-   
+
 [
     "sin", "cos", "tan", "cosec", "sec", "cot",
     "sinh", "cosh", "tanh", "cosech", "sech", "coth"
@@ -529,7 +529,7 @@ var parser = {
     interpretPostfixOp: function (op, target) {
 	target.parent.replaceChild(target, target.operand);
 	return op(target.operand);
-    },    
+    },
     interpretKeyword: function (k, target) {
 	return this['interpret' + k.type](k.value, target, k.kw);
     },
@@ -537,7 +537,7 @@ var parser = {
 	var comp, newTarget, kw;
 	if (input === undefined || input === null) {
 	    input = target.content;
-	} 
+	}
 	if (!input) {
 	    if (target.isEditExpr) {
 		if (target.operand) {
@@ -640,7 +640,7 @@ var parser = {
 	    }
 	    // There is more after the keyword so that needs interpreting
 	    input = input.substr(kw.length);
-	    return this.interpret(target, input, ongoing);	
+	    return this.interpret(target, input, ongoing);
 	}
 	// We are in the situation where the input doesn't start with
 	// a keyword and has no possible completions (or if it does

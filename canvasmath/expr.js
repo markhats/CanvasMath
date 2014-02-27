@@ -19,7 +19,7 @@ var Expression = {
     subLayout: function (layout, subexpr, bracketFlag) {
 	var l = layout.ofExpr(subexpr);
 	if (bracketFlag === true ||
-	    bracketFlag !== false && 
+	    bracketFlag !== false &&
 	    !subexpr.isContainer && this.priority >= subexpr.priority) {
 	    l = layout.bracket(l);
 	}
@@ -96,7 +96,7 @@ var Expression = {
 			break;
 		    }
 		}
-		if (start === a.parent.firstChild 
+		if (start === a.parent.firstChild
 		    && stop === a.parent.lastChild) {
 		    return {expr: a.parent};
 		}
@@ -279,7 +279,7 @@ var FixedChildrenExpression = {
 	var prop = this.childProperties[i];
 	newChild.parentIndex = i;
 	this[prop] = newChild;
-	newChild.setRelations(this, 
+	newChild.setRelations(this,
 	    oldChild.previousSibling, oldChild.nextSibling, true);
 	oldChild.setRelations();
     },
@@ -509,7 +509,7 @@ var PlusMinus = {
 PlusMinus = PrefixOperation.specialise(PlusMinus);
 
 var MinusPlus = {
-    __name__: "MinusPlus", 
+    __name__: "MinusPlus",
     isMinusPlus: true,
     prefixOp: operators.prefix.minusPlus,
     sumSeparator: operators.infix.minusPlus
@@ -831,7 +831,7 @@ var Conjunction = {
 	    op.bindExpr(this, i);
 	}
 	train.push(this.subLayout(layout, this.operands[i]));
-    }	
+    }
 };
 Conjunction = VarLenOperation.specialise(Conjunction);
 
@@ -846,7 +846,7 @@ var Disjunction = {
 	    op.bindExpr(this, i);
 	}
 	train.push(this.subLayout(layout, this.operands[i]));
-    }	
+    }
 };
 Disjunction = VarLenOperation.specialise(Disjunction);
 
@@ -1033,7 +1033,7 @@ var Sqrt = {
 	} else {
 	    return null;
 	}
-    }	
+    }
 };
 Sqrt = Expression.specialise(Sqrt);
 
@@ -1078,8 +1078,8 @@ var TrigFunction = {
     },
     copy: function () {
 	return expr.trigFunction(
-	    this.name, 
-	    this.arg.copy(), 
+	    this.name,
+	    this.arg.copy(),
 	    this.power && this.power.copy()
 	);
     },
@@ -1266,7 +1266,7 @@ var Matrix = {
     }
 };
 Matrix = Expression.specialise(Matrix);
-			  
+
 var EditExpr = {
     __name__: "EditExpr",
     isEditExpr: true,
@@ -1488,7 +1488,7 @@ var Derivative = {
 	    return ltrain;
 	} else {
 	    var frac = expr.fraction(
-		expr.parameter("d"), 
+		expr.parameter("d"),
 		expr.differential(this.variable)
 	    );
 	    var diff = expr.applyFunction(frac, this.expr);
@@ -1701,7 +1701,7 @@ var expr = cvm.expr = {
 	var canvas = document.createElement("canvas");//$("<canvas/>")[0];
 	// Following for IE8
 	if (canvas.getContext === undefined) {
-	    G_vmlCanvasManager.initElement(canvas); 
+	    G_vmlCanvasManager.initElement(canvas);
 	}
 	this.drawOnCanvas(e, canvas);
 	return canvas;

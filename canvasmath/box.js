@@ -57,7 +57,7 @@ var Box = {
 	this.drawOnCanvas(ctx, x - this.alignAdjustment(align), y);
     },
     contains: function (x, y) {
-	return (0 <= x && x < this.width 
+	return (0 <= x && x < this.width
 		&& -this.descent >= y && y > -this.ascent);
     },
     getContainers: function (x, y) {
@@ -719,7 +719,7 @@ var Cursor = {
     },
     pushSubContainers: function (containers, x, y) {
 	this.box.pushContainers(containers, x, y);
-    }    
+    }
 }
 Cursor = Box.specialise(Cursor);
 
